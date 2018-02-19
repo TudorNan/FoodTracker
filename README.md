@@ -5,6 +5,7 @@ An easy-to-use app designed for managing ingredients and recipes and keep track 
 * [Prerequisites](#prerequisites)
 * [Getting Started](#getting-started)
 * [Database](#database)
+* [To do](#to-do)
 
 # Prerequisites
 
@@ -223,3 +224,8 @@ ALTER TABLE [dbo].[Recipe_ingredients] CHECK CONSTRAINT [fkey_recipe]
 GO
 
 ```
+# To do
+
+Add daily intake function and menu
+
+Add stats about the last days
