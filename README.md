@@ -8,12 +8,10 @@ An easy to use app designed to manage ingredients and recipes and keep track of 
 
 # Prerequisites
 
-SQL Server 
-Java 1.8
+* SQL Server
+* Java 1.8
 
-
-# Getting Started
-
+# Database
 In order to use this app you need to create a local database in sql server with the following script:
 ```
 USE [RecipesApp]
@@ -207,6 +205,13 @@ ALTER TABLE [dbo].[Recipe_ingredients] CHECK CONSTRAINT [fkey_recipe]
 GO
 
 ```
+
+# Getting Started
+Creating a new account is done as following:
+![register]https://user-images.githubusercontent.com/9632475/36400228-514c3c08-15d8-11e8-92b0-bb054cf6eca1.gif
+
+# To do list
+
 
 
 
