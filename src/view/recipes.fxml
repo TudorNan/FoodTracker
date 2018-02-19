@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="background-recipes" prefHeight="800.0" prefWidth="1440.0" stylesheets="@light-design.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerRecipes">
+   <children>
+      <TableView fx:id="tableView" layoutX="55.0" layoutY="119.0" prefHeight="614.0" prefWidth="872.0">
+         <columns>
+            <TableColumn fx:id="column_name" prefWidth="230.0" text="Recipe name" />
+            <TableColumn fx:id="column_calories" prefWidth="82.0" text="Calories" />
+            <TableColumn fx:id="column_carbs" prefWidth="141.0" text="Carbohydrates" />
+            <TableColumn fx:id="column_proteins" prefWidth="86.0" text="Proteins" />
+            <TableColumn fx:id="column_fats" minWidth="0.0" prefWidth="62.0" text="Fats" />
+            <TableColumn fx:id="column_fibers" text="Fibers" />
+            <TableColumn fx:id="column_servings" prefWidth="100.0" text="Servings" />
+         </columns>
+      </TableView>
+      <JFXButton id="button1_menu" fx:id="button_add" layoutX="56.0" layoutY="53.0" onAction="#create_recipe" prefHeight="46.0" prefWidth="215.0" styleClass="login-button" text="Create new recipe">
+         <font>
+            <Font name="Leelawadee UI" size="16.0" />
+         </font>
+         <graphic>
+            <MaterialDesignIconView glyphName="PLUS_CIRCLE_OUTLINE" size="25" />
+         </graphic>
+         <opaqueInsets>
+            <Insets right="-2.0" />
+         </opaqueInsets>
+      </JFXButton>
+      <JFXButton id="button1_menu" fx:id="button_delete" layoutX="513.0" layoutY="53.0" onAction="#delete_recipe" prefHeight="46.0" prefWidth="185.0" styleClass="login-button" text="Delete recipe">
+         <font>
+            <Font name="Leelawadee UI" size="16.0" />
+         </font>
+         <graphic>
+            <MaterialDesignIconView glyphName="DELETE" size="25" />
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="button_back" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" onAction="#back" prefHeight="22.0" prefWidth="19.0" ripplerFill="WHITE">
+         <graphic>
+            <MaterialDesignIconView id="button_exit" glyphName="KEYBOARD_BACKSPACE" size="30" />
+         </graphic>
+      </JFXButton>
+      <JFXButton id="button1_menu" fx:id="button_modify" layoutX="295.0" layoutY="54.0" onAction="#modify_recipe" prefHeight="46.0" prefWidth="185.0" styleClass="login-button" text="Modify recipe">
+         <font>
+            <Font name="Leelawadee UI" size="16.0" />
+         </font>
+         <graphic>
+            <MaterialDesignIconView glyphName="PENCIL" size="25" />
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="button_exit" contentDisplay="CENTER" layoutX="1380.0" layoutY="14.0" onAction="#stop_app" prefHeight="30.0" prefWidth="30.0" ripplerFill="WHITE">
+         <graphic>
+            <MaterialDesignIconView id="button_exit" glyphName="CLOSE_BOX_OUTLINE" size="30" />
+         </graphic>
+      </JFXButton>
+      <Pagination fx:id="pagination" layoutX="365.0" layoutY="740.0" maxPageIndicatorCount="3" prefHeight="40.0" prefWidth="255.0" />
+      <TableView fx:id="tableView_ingredients" layoutX="995.0" layoutY="119.0" prefHeight="614.0" prefWidth="420.0">
+         <columns>
+            <TableColumn fx:id="column_ingname" prefWidth="307.0" text="Ingredient name" />
+            <TableColumn fx:id="column_amount" prefWidth="99.0" text="Amount" />
+         </columns>
+      </TableView>
+      <JFXTextField id="button2_menu" fx:id="textField_search" focusColor="#0075c4" layoutX="728.0" layoutY="738.0" prefHeight="33.0" prefWidth="198.0" promptText="Search for a recipe">
+         <font>
+            <Font name="Segoe UI" size="14.0" />
+         </font>
+      </JFXTextField>
+      <FontAwesomeIconView id="button2_menu" glyphName="SEARCH" layoutX="703.0" layoutY="763.0" size="25" />
+      <Label id="button2_menu" fx:id="label_success" alignment="CENTER" contentDisplay="CENTER" layoutX="1077.0" layoutY="88.0" prefHeight="33.0" prefWidth="255.0" text="Ingredients in this recipe" textAlignment="CENTER">
+         <font>
+            <Font name="Leelawadee UI" size="17.0" />
+         </font>
+      </Label>
+      <JFXButton id="button2_menu" layoutX="1230.0" layoutY="740.0" onAction="#export" prefHeight="25.0" prefWidth="185.0" styleClass="login-button" text="Save recipe .pdf">
+         <font>
+            <Font name="Leelawadee UI" size="16.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIconView glyphName="FILE_PDF_ALT" size="20" />
+         </graphic>
+      </JFXButton>
+   </children>
+</AnchorPane>

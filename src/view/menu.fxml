@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import de.jensd.fx.glyphs.octicons.OctIconView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="background-menu" fx:id="main_pane" prefHeight="600.0" prefWidth="1024.0" stylesheets="@light-design.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerMenu">
+   <children>
+      <JFXHamburger id="burger" fx:id="hamburger" layoutX="14.0" layoutY="14.0" stylesheets="@light-design.css" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
+      <JFXDrawer fx:id="drawer" defaultDrawerSize="250.0" layoutY="104.0" prefHeight="300.0" prefWidth="150.0" />
+      <JFXButton id="button1_menu" contentDisplay="TOP" layoutX="205.0" layoutY="300.0" onAction="#display_menu_all_recipes" prefHeight="104.0" prefWidth="192.0" text="All Recipes">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIconView id="glyph_menu" glyphName="BOOK" size="40" />
+         </graphic>
+      </JFXButton>
+      <JFXButton id="button1_menu" contentDisplay="TOP" layoutX="632.0" layoutY="419.0" onAction="#display_menu_ingredients" prefHeight="104.0" prefWidth="192.0" text="My Ingredients">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <graphic>
+            <MaterialDesignIconView id="glyph_menu" glyphName="FOOD_APPLE" size="40" />
+         </graphic>
+      </JFXButton>
+      <JFXButton id="button1_menu" contentDisplay="TOP" layoutX="205.0" layoutY="419.0" onAction="#display_menu_recipes" prefHeight="104.0" prefWidth="192.0" text="My recipes">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <graphic>
+            <MaterialDesignIconView id="glyph_menu" glyphName="SILVERWARE_SPOON" size="40" />
+         </graphic>
+      </JFXButton>
+      <JFXButton id="button1_menu" fx:id="button_plan" contentDisplay="TOP" layoutX="416.0" layoutY="300.0" prefHeight="104.0" prefWidth="192.0" text="Today's plan">
+         <font>
+            <Font name="Leelawadee UI" size="20.0" />
+         </font>
+         <graphic>
+            <MaterialDesignIconView id="glyph_menu" glyphName="CALENDAR_TODAY" size="40" />
+         </graphic>
+      </JFXButton>
+      <JFXButton id="button1_menu" fx:id="button_statistics" contentDisplay="TOP" layoutX="417.0" layoutY="419.0" prefHeight="104.0" prefWidth="192.0" text="Statistics">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <graphic>
+            <OctIconView id="glyph_menu" glyphName="GRAPH" size="34" />
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="button_exit" contentDisplay="CENTER" layoutX="964.0" layoutY="15.0" onAction="#stop_app" prefHeight="30.0" prefWidth="30.0" ripplerFill="WHITE" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <graphic>
+            <MaterialDesignIconView id="button_exit" glyphName="CLOSE_BOX_OUTLINE" size="30" />
+         </graphic>
+      </JFXButton>
+      <JFXButton id="button1_menu" contentDisplay="TOP" layoutX="632.0" layoutY="300.0" onAction="#display_menu_all_ingredients" prefHeight="104.0" prefWidth="192.0" text="All ingredients">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <graphic>
+            <OctIconView glyphName="LIST_UNORDERED" size="30" />
+         </graphic>
+      </JFXButton>
+   </children>
+</AnchorPane>

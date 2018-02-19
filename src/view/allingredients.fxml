@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerAllIngredients">
+   <children>
+      <AnchorPane id="background-ingredients" prefHeight="800.0" prefWidth="1440.0" stylesheets="@light-design.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane id="ingredients_pane" layoutX="939.0" layoutY="170.0" prefHeight="486.0" prefWidth="352.0" styleClass="anchor-login" stylesheets="@light-design.css">
+               <children>
+                  <JFXTextField fx:id="textBox_calories" focusColor="#0075c4" labelFloat="true" layoutX="94.0" layoutY="138.0" prefHeight="33.0" prefWidth="165.0" promptText="Calories">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="textBox_carbohydrates" focusColor="#0075c4" labelFloat="true" layoutX="94.0" layoutY="196.0" prefHeight="33.0" prefWidth="165.0" promptText="Carbohydrates">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="textBox_proteins" focusColor="#0075c4" labelFloat="true" layoutX="94.0" layoutY="252.0" prefHeight="33.0" prefWidth="165.0" promptText="Proteins">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="textBox_fats" focusColor="#0075c4" labelFloat="true" layoutX="94.0" layoutY="307.0" prefHeight="33.0" prefWidth="165.0" promptText="Fats">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="textBox_fibers" focusColor="#0075c4" labelFloat="true" layoutX="94.0" layoutY="370.0" prefHeight="33.0" prefWidth="165.0" promptText="Fibers">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </JFXTextField>
+                  <Label fx:id="label_success" layoutX="61.0" layoutY="30.0" prefHeight="33.0" prefWidth="247.0" text="Message">
+                     <font>
+                        <Font name="Leelawadee UI" size="17.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIconView id="glyph_registered" glyphName="CHECK_CIRCLE" size="16" />
+                     </graphic>
+                  </Label>
+                  <JFXTextField fx:id="textBox_name" focusColor="#0075c4" labelFloat="true" layoutX="94.0" layoutY="84.0" prefHeight="33.0" prefWidth="165.0" promptText="Ingredient name">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXButton id="button2_menu" fx:id="button_find1" layoutX="94.0" layoutY="420.0" onAction="#reset_fields" prefHeight="23.0" prefWidth="165.0" styleClass="login-button" text="Reset fields">
+                     <font>
+                        <Font name="Leelawadee UI" size="18.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+            <TableView fx:id="tableViewAllIngredients" layoutX="56.0" layoutY="106.0" prefHeight="614.0" prefWidth="789.0">
+               <columns>
+                  <TableColumn fx:id="tableColumn_name" prefWidth="230.0" text="Name" />
+                  <TableColumn fx:id="tableColumn_calories" prefWidth="92.0" text="Calories" />
+                  <TableColumn fx:id="tableColumn_carbs" prefWidth="171.0" text="Carbohydrates" />
+                  <TableColumn fx:id="tableColumn_proteins" prefWidth="109.0" text="Proteins" />
+                  <TableColumn fx:id="tableColumn_fats" minWidth="0.0" prefWidth="88.0" text="Fats" />
+                  <TableColumn fx:id="tableColumn_fibers" prefWidth="84.0" text="Fibers" />
+               </columns>
+            </TableView>
+            <JFXButton fx:id="button_back" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" onAction="#back" prefHeight="22.0" prefWidth="19.0" ripplerFill="WHITE">
+               <graphic>
+                  <MaterialDesignIconView id="button_exit" glyphName="KEYBOARD_BACKSPACE" size="30" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="button_exit" contentDisplay="CENTER" layoutX="1380.0" layoutY="14.0" onAction="#stop_app" prefHeight="30.0" prefWidth="30.0" ripplerFill="WHITE">
+               <graphic>
+                  <MaterialDesignIconView id="button_exit" glyphName="CLOSE_BOX_OUTLINE" size="30" />
+               </graphic>
+            </JFXButton>
+            <Pagination fx:id="pagination" layoutX="328.0" layoutY="733.0" maxPageIndicatorCount="3" prefHeight="40.0" prefWidth="255.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

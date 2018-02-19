@@ -1,0 +1,170 @@
+
+* {
+    -fx-primary : #FFFFFF;
+    -fx-secondary : #0075C4;;
+
+    -fx-primarytext : #2B2B2B;
+    -fx-secondarytext:#FFFFFF;
+}
+
+.root{
+    -fx-base: -fx-primary;
+    -fx-accent: -fx-secondary;
+}
+.pagination{
+    -fx-base:-fx-primary;
+    -fx-text-fill: -fx-primarytext;
+
+}
+.pagination .toggle-button{
+    -fx-pref-width: 30px;
+    -fx-pref-height: 40px;
+    -fx-background-radius:0px;
+}
+.pagination .toggle-button:selected{
+    -fx-border-width: 2px;
+    -fx-border-color: -fx-primarytext;
+    -fx-base:-fx-primary;
+}
+
+/*.pagination .control-box{*/
+    /*-fx-background-color:linear-gradient(to bottom,-fx-secondary,transparent);*/
+    /*-fx-pref-height: ;f*/
+    /*-fx-padding:0 0 0 0px;*/
+/*}*/
+
+.pagination .label {
+    -fx-text-fill:white;
+}
+#glyph_menu{
+    -fx-fill:-fx-primarytext;
+}
+#button1_menu{
+    -fx-background-color: -fx-primary;
+    -fx-border-color: transparent;
+    -fx-border-width: 4px;
+    -fx-text-fill: -fx-primarytext;
+}
+#button2_menu{
+    -fx-background-color: -fx-primary;
+    -fx-border-color: transparent;
+    -fx-border-width: 2px;
+    -fx-border-color: -fx-primarytext;
+    -fx-text-fill: -fx-primarytext;
+}
+.jfx-hamburger {
+    -fx-background-color: transparent;
+}
+#glyph_registered{
+    -fx-fill:green;
+}
+
+#vbox_style{
+    -fx-background-color: transparent;
+    -fx-border-color: -fx-primarytext ;
+    -fx-border-width: 3;
+
+
+}
+.jfx-hamburger StackPane {
+    -fx-background-color: white;
+}
+#button_exit{
+    -fx-fill:#FFFFFF;
+}
+
+.glyph-icon
+{
+    -fx-fill: -fx-primarytext;
+    -fx-highlight-text-fill: -fx-secondarytext;
+}
+/*Login screen and register screen*/
+.login-button{
+    -fx-border-color:-fx-secondary;
+    -fx-border-radius:16px;
+    -fx-background-radius:20px;
+    -fx-border-width: 2px;
+}
+.anchor-login{
+    -fx-background-color: -fx-primary;
+    -fx-border-color: -fx-secondary;
+    -fx-border-radius: 15px;
+    -fx-border-width: 3px;
+    -fx-background-radius: 15px;
+}
+.table-view {
+    -fx-border-width: 3px;
+    -fx-border-color: -fx-primarytext;
+    -fx-base: -fx-secondarytext;
+    -fx-control-inner-background: -fx-primary;
+    -fx-background-color: -fx-primary;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+    -fx-padding: 5;
+}
+#ingredients_pane{
+    -fx-background-color: -fx-primary;
+    -fx-border-color: -fx-primarytext;
+    -fx-border-radius: 0px;
+    -fx-border-width: 3px;
+    -fx-background-radius: 0px;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-size: 35;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-color: transparent;
+    -fx-border-color:
+            transparent
+            transparent
+            derive(-fx-base, 80%)
+            transparent;
+    -fx-border-insets: 0 10 1 0;
+}
+.table-view .table-cell{
+    -fx-font-size:13pt;
+
+}
+.table-view .column-header .label {
+    -fx-font-size: 15pt;
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-fill: -fx-primarytext;
+    -fx-alignment: center;
+    -fx-opacity: 1;
+}
+
+.table-view:focused .table-row-cell:filled:focused:selected {
+    -fx-background-color: -fx-secondary;
+    -fx-text-fill:-fx-secondarytext;
+}
+
+
+#background-ingredients{
+    -fx-background-image: url("../../../resources/back4_full.jpg");
+    -fx-background-size:cover;
+}
+
+#background-login{
+    -fx-background-image: url("../../../resources/back6_full.jpg");
+    -fx-background-size:cover;
+}
+#background-register{
+    -fx-background-image: url("../../../resources/Back2_full.jpg");
+    -fx-background-size:cover;
+}
+#background-menu{
+    -fx-background-image: url("../../../resources/back3_full.jpg");
+    -fx-background-size:cover;
+}
+#background-recipes{
+    -fx-background-image: url("../../../resources/back5_full.jpg");
+    -fx-background-size:cover;
+}
+#background-all-recipes{
+    -fx-background-image: url("../../../resources/Back7_full.jpg");
+    -fx-background-size:cover;
+}

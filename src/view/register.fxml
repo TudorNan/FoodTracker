@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="background-register" prefHeight="600.0" prefWidth="1024.0" stylesheets="@light-design.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerRegister">
+   <children>
+      <AnchorPane layoutX="205.0" layoutY="118.0" prefHeight="364.0" prefWidth="587.0" styleClass="anchor-login" stylesheets="@light-design.css" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="100.0">
+         <children>
+            <JFXTextField fx:id="textField_user" focusColor="#0075c4" labelFloat="true" layoutX="72.0" layoutY="120.0" prefHeight="33.0" prefWidth="200.0" promptText="Username">
+               <font>
+                  <Font name="Leelawadee UI" size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXPasswordField fx:id="passwordField_pass" focusColor="#0075c4" labelFloat="true" layoutX="72.0" layoutY="201.0" prefHeight="33.0" prefWidth="200.0" promptText="Password">
+               <font>
+                  <Font name="Leelawadee" size="14.0" />
+               </font>
+            </JFXPasswordField>
+            <JFXButton fx:id="button_register" layoutX="380.0" layoutY="309.0" onAction="#register" prefHeight="33.0" prefWidth="123.0" styleClass="login-button" text="Register">
+               <font>
+                  <Font name="Leelawadee UI" size="12.0" />
+               </font>
+            </JFXButton>
+            <JFXTextField fx:id="textField_email" focusColor="#0075c4" labelFloat="true" layoutX="337.0" layoutY="120.0" prefHeight="33.0" prefWidth="208.0" promptText="Email">
+               <font>
+                  <Font name="Leelawadee UI" size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXPasswordField fx:id="passwordField_pass2" focusColor="#0075c4" labelFloat="true" layoutX="337.0" layoutY="200.0" prefHeight="33.0" prefWidth="208.0" promptText="Type password again">
+               <font>
+                  <Font name="Leelawadee" size="14.0" />
+               </font>
+            </JFXPasswordField>
+            <Label fx:id="label_registered" layoutX="200.0" layoutY="72.0" text="Account successfully registered">
+               <font>
+                  <Font name="Leelawadee UI" size="15.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView id="glyph_registered" glyphName="CHECK_CIRCLE" size="16" />
+               </graphic>
+            </Label>
+         </children>
+      </AnchorPane>
+      <JFXButton fx:id="button_back" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" onAction="#change_screen_login" prefHeight="22.0" prefWidth="19.0" ripplerFill="WHITE" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <graphic>
+            <MaterialDesignIconView id="button_exit" glyphName="KEYBOARD_BACKSPACE" size="30" />
+         </graphic>
+      </JFXButton>
+   </children>
+</AnchorPane>
