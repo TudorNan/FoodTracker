@@ -1,87 +1,212 @@
 # FoodTracker
+An easy to use app designed to manage ingredients and recipes and keep track of the calories intake for a day.
 
-One Paragraph of project description goes here
+# Table of Contents
+* [Prerequisites](#prerequisites)
+* [Getting started](#Getting-Started)
+* [Database](#database)
 
-## Getting Started
+# Prerequisites
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+SQL Server 
+Java 1.8
 
-### Prerequisites
 
-What things you need to install the software and how to install them
+# Getting Started
+
+In order to use this app you need to create a local database in sql server with the following script:
+```
+USE [RecipesApp]
+GO
+/****** Object:  Table [dbo].[Account]    Script Date: 2/20/2018 1:09:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Account](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[username] [varchar](100) NOT NULL,
+	[password] [varchar](100) NOT NULL,
+	[email] [varchar](100) NOT NULL,
+	[kcalGoal] [int] NULL,
+ CONSTRAINT [PK_Account] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
+ CONSTRAINT [Unique_email] UNIQUE NONCLUSTERED 
+(
+	[email] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
+ CONSTRAINT [Unique_user] UNIQUE NONCLUSTERED 
+(
+	[username] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Account_ingredients]    Script Date: 2/20/2018 1:09:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Account_ingredients](
+	[account_id] [int] NOT NULL,
+	[ingredient_id] [int] NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Account_recipes]    Script Date: 2/20/2018 1:09:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Account_recipes](
+	[account_id] [int] NOT NULL,
+	[recipe_id] [int] NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[DailyEntryIngredient]    Script Date: 2/20/2018 1:09:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[DailyEntryIngredient](
+	[id_account] [int] NOT NULL,
+	[id_ingredient] [int] NOT NULL,
+	[quantity] [float] NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[DailyEntryRecipe]    Script Date: 2/20/2018 1:09:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[DailyEntryRecipe](
+	[id_account] [int] NOT NULL,
+	[id_recipe] [int] NOT NULL,
+	[quantity] [float] NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Ingredient]    Script Date: 2/20/2018 1:09:46 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Ingredient](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [varchar](100) NOT NULL,
+	[calories] [int] NOT NULL,
+	[carbohydrates] [float] NULL,
+	[proteins] [float] NULL,
+	[fats] [float] NULL,
+	[fibers] [float] NULL,
+ CONSTRAINT [PK_Ingredient] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Permission]    Script Date: 2/20/2018 1:09:46 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Permission](
+	[account_id] [int] NOT NULL,
+	[permissionLevel] [int] NOT NULL,
+ CONSTRAINT [PK_TrustedUser] PRIMARY KEY CLUSTERED 
+(
+	[account_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Recipe]    Script Date: 2/20/2018 1:09:46 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Recipe](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [varchar](100) NOT NULL,
+	[servings] [int] NOT NULL,
+ CONSTRAINT [PK_Recipe] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Recipe_ingredients]    Script Date: 2/20/2018 1:09:46 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Recipe_ingredients](
+	[ingredient_id] [int] NOT NULL,
+	[recipe_id] [int] NOT NULL,
+	[quantity] [int] NOT NULL
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Account_ingredients]  WITH CHECK ADD  CONSTRAINT [FK_Accountid] FOREIGN KEY([account_id])
+REFERENCES [dbo].[Account] ([id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[Account_ingredients] CHECK CONSTRAINT [FK_Accountid]
+GO
+ALTER TABLE [dbo].[Account_ingredients]  WITH CHECK ADD  CONSTRAINT [FK_ingredient] FOREIGN KEY([ingredient_id])
+REFERENCES [dbo].[Ingredient] ([id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[Account_ingredients] CHECK CONSTRAINT [FK_ingredient]
+GO
+ALTER TABLE [dbo].[Account_recipes]  WITH CHECK ADD  CONSTRAINT [FK_account] FOREIGN KEY([account_id])
+REFERENCES [dbo].[Account] ([id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[Account_recipes] CHECK CONSTRAINT [FK_account]
+GO
+ALTER TABLE [dbo].[Account_recipes]  WITH CHECK ADD  CONSTRAINT [FK_recipe] FOREIGN KEY([recipe_id])
+REFERENCES [dbo].[Recipe] ([id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[Account_recipes] CHECK CONSTRAINT [FK_recipe]
+GO
+ALTER TABLE [dbo].[DailyEntryIngredient]  WITH CHECK ADD  CONSTRAINT [FK_DailyEntryIngredient_Account] FOREIGN KEY([id_account])
+REFERENCES [dbo].[Account] ([id])
+GO
+ALTER TABLE [dbo].[DailyEntryIngredient] CHECK CONSTRAINT [FK_DailyEntryIngredient_Account]
+GO
+ALTER TABLE [dbo].[DailyEntryIngredient]  WITH CHECK ADD  CONSTRAINT [FK_DailyEntryIngredient_Ingredient] FOREIGN KEY([id_ingredient])
+REFERENCES [dbo].[Ingredient] ([id])
+GO
+ALTER TABLE [dbo].[DailyEntryIngredient] CHECK CONSTRAINT [FK_DailyEntryIngredient_Ingredient]
+GO
+ALTER TABLE [dbo].[DailyEntryRecipe]  WITH CHECK ADD  CONSTRAINT [FK_DailyEntryRecipe_Account] FOREIGN KEY([id_account])
+REFERENCES [dbo].[Account] ([id])
+GO
+ALTER TABLE [dbo].[DailyEntryRecipe] CHECK CONSTRAINT [FK_DailyEntryRecipe_Account]
+GO
+ALTER TABLE [dbo].[DailyEntryRecipe]  WITH CHECK ADD  CONSTRAINT [FK_DailyEntryRecipe_recipe] FOREIGN KEY([id_recipe])
+REFERENCES [dbo].[Recipe] ([id])
+GO
+ALTER TABLE [dbo].[DailyEntryRecipe] CHECK CONSTRAINT [FK_DailyEntryRecipe_recipe]
+GO
+ALTER TABLE [dbo].[Permission]  WITH CHECK ADD  CONSTRAINT [FK_TrustedUser_account] FOREIGN KEY([account_id])
+REFERENCES [dbo].[Account] ([id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[Permission] CHECK CONSTRAINT [FK_TrustedUser_account]
+GO
+ALTER TABLE [dbo].[Recipe_ingredients]  WITH CHECK ADD  CONSTRAINT [fkey_ingredient] FOREIGN KEY([ingredient_id])
+REFERENCES [dbo].[Ingredient] ([id])
+GO
+ALTER TABLE [dbo].[Recipe_ingredients] CHECK CONSTRAINT [fkey_ingredient]
+GO
+ALTER TABLE [dbo].[Recipe_ingredients]  WITH CHECK ADD  CONSTRAINT [fkey_recipe] FOREIGN KEY([recipe_id])
+REFERENCES [dbo].[Recipe] ([id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[Recipe_ingredients] CHECK CONSTRAINT [fkey_recipe]
+GO
 
 ```
-Give examples
-```
 
-### Installing
 
-A step by step series of examples that tell you have to get a development env running
 
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
