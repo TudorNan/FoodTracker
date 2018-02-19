@@ -3,7 +3,7 @@ An easy to use app designed to manage ingredients and recipes and keep track of 
 
 # Table of Contents
 * [Prerequisites](#prerequisites)
-* [GettingStarted](#getting-started)
+* [Getting Started](#getting-started)
 * [Database](#database)
 
 # Prerequisites
