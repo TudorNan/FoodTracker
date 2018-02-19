@@ -1,5 +1,5 @@
 # FoodTracker
-An easy to use app designed to manage ingredients and recipes and keep track of the calories intake for a day.
+An easy-to-use app designed to manage ingredients and recipes and keep track of the calories intake for a day.
 
 # Table of Contents
 * [Prerequisites](#prerequisites)
