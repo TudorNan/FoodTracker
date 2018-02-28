@@ -34,7 +34,7 @@ Managing recipes:
 # Database
 In order to use this app you need to create a local database in sql server with the following script:
 ```
-USE [RecipesApp]
+
 GO
 /****** Object:  Table [dbo].[Account]    Script Date: 2/20/2018 1:09:45 AM ******/
 SET ANSI_NULLS ON
